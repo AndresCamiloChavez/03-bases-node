@@ -20,19 +20,19 @@ const colors = require("colors");
 //     }
 //   });
 // };
-const crearArchivoTabla = async (base = 5, listar = false) => {
+const crearArchivoTabla = async (base = 5, listar = false, hasta = 10) => {
   try {
     let salida = "";
-    for (var i = 1; i < 11; i++) {
+    for (var i = 1; i < (hasta + 1); i++) {
       salida += ` ${base} x ${i} = ${base * i} \n`;
     }
     //   throw new Error('paso algo')
     await fs.writeFileSync(`Tabla del ${base}.txt`, salida);
     if (!!listar) {
-      console.log("==============================================".green);
-      console.log("Tabla del ".bgYellow, base);
-      console.log("==============================================".blue);
-      console.log(salida);
+      console.log("==============================================".green.underline);
+      console.log("Tabla del ".random, base);
+      console.log("==============================================".blue.underline.bgWhite);
+      console.log(salida.random);
     }
     return `Tabla del ${base}.txt`;
   } catch (error) {

@@ -12,6 +12,12 @@ const argv = require("yargs")
       description: "Muestra la tabla en consola",
       demandOption: false,
     },
+    h:{
+        alias: "hasta",
+        type: "number",
+        description: "Muestra la cantidad de valores",
+        default: 10
+      },
   })
   .check((argv, options) => {
     if (isNaN(argv.b)) {

@@ -13,7 +13,7 @@ console.clear();
 // console.log(process.argv);
 // console.log(argv);
 
-crearArchivoTabla(argv.b, argv.l)
+crearArchivoTabla(argv.b, argv.l, argv.h)
   .then((resp) => {
     console.log(resp, "creado");
   })
