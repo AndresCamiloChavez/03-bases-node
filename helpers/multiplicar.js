@@ -27,14 +27,14 @@ const crearArchivoTabla = async (base = 5, listar = false, hasta = 10) => {
       salida += ` ${base} x ${i} = ${base * i} \n`;
     }
     //   throw new Error('paso algo')
-    await fs.writeFileSync(`Tabla del ${base}.txt`, salida);
+    await fs.writeFileSync(`./salida/Tabla del ${base}.txt`, salida);
     if (!!listar) {
       console.log("==============================================".green.underline);
       console.log("Tabla del ".random, base);
       console.log("==============================================".blue.underline.bgWhite);
       console.log(salida.random);
     }
-    return `Tabla del ${base}.txt`;
+    return `./salida/Tabla-del-${base}.txt`;
   } catch (error) {
     throw error;
   }
