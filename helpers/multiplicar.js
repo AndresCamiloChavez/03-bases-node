@@ -1,4 +1,5 @@
 const fs = require("fs");
+const colors = require("colors");
 
 // const crearArchivoTabla = (base = 5) => {
 //   return new Promise((resolve, reject) => {
@@ -19,10 +20,7 @@ const fs = require("fs");
 //     }
 //   });
 // };
-const crearArchivoTabla = async (base = 5) => {
-  console.log("==============================================");
-  console.log("Tabla del ", base);
-  console.log("==============================================");
+const crearArchivoTabla = async (base = 5, listar = false) => {
   try {
     let salida = "";
     for (var i = 1; i < 11; i++) {
@@ -30,7 +28,13 @@ const crearArchivoTabla = async (base = 5) => {
     }
     //   throw new Error('paso algo')
     await fs.writeFileSync(`Tabla del ${base}.txt`, salida);
-    return `Tabla del ${base}.txt`
+    if (!!listar) {
+      console.log("==============================================".green);
+      console.log("Tabla del ".bgYellow, base);
+      console.log("==============================================".blue);
+      console.log(salida);
+    }
+    return `Tabla del ${base}.txt`;
   } catch (error) {
     throw error;
   }
